@@ -1,0 +1,28 @@
+# Serverless Frameworkのプロジェクト名
+service: aws-github-codebuild-test
+# Serverless Frameworkのバージョン情報
+frameworkVersion: "3"
+
+# 今回作成するアプリケーションを提供するプロバイダ情報
+provider:
+  # 今回はAWSを活用するため「aws」
+  name: aws
+  # dev 又は prod。今回は開発のため「dev」
+  stage: dev
+  # 使用言語やversion
+  runtime: nodejs12.x
+  # どのリージョンを使うかの定義
+  region: ap-northeast-1
+
+# Lamda関数の作成
+functions:
+  # Lamda関数の名前を定義。「サービス名+環境名+関数の名前」でコンソール上に表示される
+  hello:
+    # どのファイルのどの関数かを指定する
+    handler: handler.hello
+    # 関数を実行するイベントを定義
+    events:
+      # 「greet」というhttpリクエストを受けたことをトリガーに指定
+      - http:
+          path: /greet
+          method: GET

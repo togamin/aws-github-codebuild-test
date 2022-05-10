@@ -1,0 +1,10 @@
+version: 0.2
+phases:
+  install:
+    commands:
+      - echo "installing serverless"
+      - npm install serverless -g
+  build:
+    commands:
+      - echo "deploying serverless app"
+      - serverless deploy
