@@ -5,7 +5,7 @@ module.exports.hello = async (event) => {
     statusCode: 200,
     body: JSON.stringify(
       {
-        message: 'aws-github-codebuild-test',
+        message: 'aws-github-codebuild-test !!!',
         input: event,
       },
       null,
